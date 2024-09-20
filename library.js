@@ -30,9 +30,15 @@ const library = {
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
-const printPlaylists = function() {
 
-}
+//Input: object
+//Output: string
+const printPlaylists = function() {
+       for (let playlistId in library.playlists) {
+              let playlist = library.playlists[playlistId];
+              console.log(`${playlist.id}: ${playlist.name} — ${playlist.tracks.length} tracks`);
+       }
+};
 
 
 // prints a list of all tracks, using the following format:
@@ -85,4 +91,6 @@ const addPlaylist = function(name) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 const printSearchResults = function(query) {
 
-}
+};
+
+console.log(printPlaylists());
