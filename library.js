@@ -84,17 +84,23 @@ const generateUid = function() {
 // adds a track to the library
 const addTrack = function(name, artist, album) {
        const trackToAdd = {};
+       trackToAdd.id = generateUid();
        trackToAdd[name] = name;
        trackToAdd[artist] = artist;
        trackToAdd[album] = album;
-       console.log(`Added ${trackToAdd[name]} by ${trackToAdd[artist]} (${trackToAdd[album]}) to library`)
+       library.tracks = trackToAdd;
+       console.log(`Added ${trackToAdd.id}: ${trackToAdd[name]} by ${trackToAdd[artist]} (${trackToAdd[album]}) to library`);
 };
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-
-}
+       const playlistToAdd = {};
+       playlistToAdd.id = generateUid();
+       playlistToAdd[name] = name;
+       library.playlists = playlistToAdd;
+       console.log(`Added ${playlistToAdd.id}: ${playlistToAdd[name]} to library`);
+};
 
 
 // STRETCH:
@@ -117,5 +123,7 @@ const printSearchResults = function(query) {
 // console.log("----");
 // addTrackToPlaylist("t01", "p02");
 // console.log("----");
-addTrack("Grand Designs", "Rush", "Power Windows");
+// addTrack("Grand Designs", "Rush", "Power Windows");
+// console.log("----");
+// addPlaylist("Renaissance Music");
 // console.log("----");
