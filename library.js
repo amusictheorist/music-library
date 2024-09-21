@@ -88,7 +88,7 @@ const addTrack = function(name, artist, album) {
        trackToAdd[name] = name;
        trackToAdd[artist] = artist;
        trackToAdd[album] = album;
-       library.tracks = trackToAdd;
+       library.tracks = {...library.tracks, [trackToAdd.id] : trackToAdd };
        console.log(`Added ${trackToAdd.id}: ${trackToAdd[name]} by ${trackToAdd[artist]} (${trackToAdd[album]}) to library`);
 };
 
@@ -98,8 +98,9 @@ const addPlaylist = function(name) {
        const playlistToAdd = {};
        playlistToAdd.id = generateUid();
        playlistToAdd[name] = name;
-       library.playlists = playlistToAdd;
+       library.playlists = {...library.playlists, [playlistToAdd.id] : playlistToAdd};
        console.log(`Added ${playlistToAdd.id}: ${playlistToAdd[name]} to library`);
+       console.log(library);
 };
 
 
@@ -112,18 +113,18 @@ const printSearchResults = function(query) {
 
 };
 
-// printPlaylists();
-// console.log("----");
-// // printTracks();
-// printPlaylist("p01");
-// console.log("----");
-// printPlaylist("p02");
-// console.log("----");
-// addTrackToPlaylist("t03", "p01");
-// console.log("----");
-// addTrackToPlaylist("t01", "p02");
-// console.log("----");
-// addTrack("Grand Designs", "Rush", "Power Windows");
-// console.log("----");
-// addPlaylist("Renaissance Music");
-// console.log("----");
+printPlaylists();
+console.log("----");
+// printTracks();
+printPlaylist("p01");
+console.log("----");
+printPlaylist("p02");
+console.log("----");
+addTrackToPlaylist("t03", "p01");
+console.log("----");
+addTrackToPlaylist("t01", "p02");
+console.log("----");
+addTrack("Grand Designs", "Rush", "Power Windows");
+console.log("----");
+addPlaylist("Renaissance Music");
+console.log("----");
