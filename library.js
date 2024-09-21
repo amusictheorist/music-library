@@ -1,27 +1,27 @@
 const library = {
-  tracks: { t01: { id: "t01",
-                   name: "Code Monkey",
-                   artist: "Jonathan Coulton",
-                   album: "Thing a Week Three" },
-            t02: { id: "t02",
-                   name: "Model View Controller",
-                   artist: "James Dempsey",
-                   album: "WWDC 2003"},
-            t03: { id: "t03",
-                   name: "Four Thirty-Three",
-                   artist: "John Cage",
-                   album: "Woodstock 1952"}
-          },
-  playlists: { p01: { id: "p01",
-                      name: "Coding Music",
-                      tracks: ["t01", "t02"]
-                    },
-               p02: { id: "p02",
-                      name: "Other Playlist",
-                      tracks: ["t03"]
-                    }
-             }
-};
+       tracks: { t01: { id: "t01",
+                        name: "Code Monkey",
+                        artist: "Jonathan Coulton",
+                        album: "Thing a Week Three" },
+                 t02: { id: "t02",
+                        name: "Model View Controller",
+                        artist: "James Dempsey",
+                        album: "WWDC 2003"},
+                 t03: { id: "t03",
+                        name: "Four Thirty-Three",
+                        artist: "John Cage",
+                        album: "Woodstock 1952"}
+               },
+       playlists: { p01: { id: "p01",
+                           name: "Coding Music",
+                           tracks: ["t01", "t02"]
+                         },
+                    p02: { id: "p02",
+                           name: "Other Playlist",
+                           tracks: ["t03"]
+                         }
+                  }
+     };
 
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
@@ -66,7 +66,11 @@ const printPlaylist = function(playlistId) {
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-
+       const trackToAdd = library.tracks[trackId];
+       const playlist = library.playlists[playlistId];
+       console.log(`Adding ${trackId} to ${playlist.name}`);
+       playlist.tracks.push(trackId);
+       console.log(playlist);
 }
 
 
@@ -98,6 +102,14 @@ const printSearchResults = function(query) {
 
 };
 
-printPlaylists();
-printTracks();
-printPlaylist("p01");
+// printPlaylists();
+// console.log("----");
+// // printTracks();
+// printPlaylist("p01");
+// console.log("----");
+// printPlaylist("p02");
+// console.log("----");
+// addTrackToPlaylist("t03", "p01");
+// console.log("----");
+// addTrackToPlaylist("t01", "p02");
+// console.log("----");
