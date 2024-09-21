@@ -83,8 +83,12 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-
-}
+       const trackToAdd = {};
+       trackToAdd[name] = name;
+       trackToAdd[artist] = artist;
+       trackToAdd[album] = album;
+       console.log(`Added ${trackToAdd[name]} by ${trackToAdd[artist]} (${trackToAdd[album]}) to library`)
+};
 
 
 // adds a playlist to the library
@@ -112,4 +116,6 @@ const printSearchResults = function(query) {
 // addTrackToPlaylist("t03", "p01");
 // console.log("----");
 // addTrackToPlaylist("t01", "p02");
+// console.log("----");
+addTrack("Grand Designs", "Rush", "Power Windows");
 // console.log("----");
